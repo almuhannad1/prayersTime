@@ -4,9 +4,10 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 
+// eslint-disable-next-line react/prop-types
 export default function ActionAreaCard({ name, time, image }) {
     return (
-        <Card sx={{ maxWidth: 345 }}>
+        <Card sx={{ width: "14vw" }}>
             <CardActionArea>
                 <CardMedia
                     component="img"
@@ -15,12 +16,9 @@ export default function ActionAreaCard({ name, time, image }) {
                     alt="green iguana"
                 />
                 <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                        {name}
-                    </Typography>
-                    <Typography variant="h4" color="text.secondary">
-                        {time}
-                    </Typography>
+                    <h4>{name}</h4>
+
+                    <Typography variant="h3" gutterBottom>{time}</Typography>
                 </CardContent>
             </CardActionArea>
         </Card>
