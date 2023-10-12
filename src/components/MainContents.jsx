@@ -17,10 +17,45 @@ import MenuItem from '@mui/material/MenuItem';
 import axios from 'axios';
 
 const MainContents = () => {
+    // States
+    const [timings, setTimings] = useState({
+        Fajr: "",
+        Dhuhr: "",
+        Asr: "",
+        Maghrib: "",
+        Isha: "",
+    });
+
+    const [selectedCity, setSelectedCity] = useState({
+        displayNAme: "",
+        apiName: ""
+    })
+
+    const avilableCities = [
+        {
+            displayNAme: "مسقط",
+            apiName: "Muscat"
+        },
+        {
+            displayNAme: "نزوى",
+            apiName: "Nizwa"
+        },
+        {
+            displayNAme: "خصب",
+            apiName: "Khasab"
+        },
+        {
+            displayNAme: "صلالة",
+            apiName: "Salalah"
+        }
+
+    ]
+
+    // === States ===
+
     // API
     const getTimings = async () => {
-        const response = await axios.get("https://api.aladhan.com/v1/timingsByCity?city=Nizwa&country=OMN");
-        console.log("the data is ", response.data.data.timings)
+        const response = await axios.get(`https://api.aladhan.com/v1/timingsByCity?city=${selectedCity.apiName}&country=OMN`);
         setTimings({
             Fajr: response.data.data.timings.Fajr,
             Dhuhr: response.data.data.timings.Dhuhr,
@@ -32,18 +67,18 @@ const MainContents = () => {
 
     useEffect(() => {
         getTimings();
-    }, [])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [selectedCity])
 
     // === API ===
 
+    const handleCityChange = (e) => {
+        const cityObject = avilableCities.find((city) => {
+            return city.apiName == e.target.value
+        })
+        setSelectedCity(cityObject)
+    }
 
-    const [timings, setTimings] = useState({
-        Fajr: "",
-        Dhuhr: "",
-        Asr: "",
-        Maghrib: "",
-        Isha: "",
-    });
 
     return (
         <>
@@ -52,7 +87,7 @@ const MainContents = () => {
                 <Grid xs={6}>
                     <div>
                         <h2>سبتمبر 9 2023 | 4:20</h2>
-                        <h1>مسقط</h1>
+                        <h1>{selectedCity.displayNAme}</h1>
                     </div>
                 </Grid>
 
@@ -85,16 +120,18 @@ const MainContents = () => {
                         style={{ color: "white" }}
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
-                        // value=""
                         label="Age"
-                        onChange=""
+                        onChange={handleCityChange}
                     >
-                        <MenuItem value={10}>Ten</MenuItem>
-                        <MenuItem value={20}>Twenty</MenuItem>
-                        <MenuItem value={30}>Thirty</MenuItem>
+                        {avilableCities.map((city) => {
+                            return (
+                                // eslint-disable-next-line react/jsx-key
+                                <MenuItem value={city.apiName}>{city.displayNAme}</MenuItem>
+                            )
+                        })}
                     </Select>
                 </FormControl>
-            </Stack>
+            </Stack >
             {/* === SELECT CITY === */}
         </>
     )
