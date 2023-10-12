@@ -1,3 +1,6 @@
+//React
+import { useEffect, useState } from 'react';
+
 // Components
 import Prayer from './Prayer';
 
@@ -10,7 +13,38 @@ import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 
+//API
+import axios from 'axios';
+
 const MainContents = () => {
+    // API
+    const getTimings = async () => {
+        const response = await axios.get("https://api.aladhan.com/v1/timingsByCity?city=Nizwa&country=OMN");
+        console.log("the data is ", response.data.data.timings)
+        setTimings({
+            Fajr: response.data.data.timings.Fajr,
+            Dhuhr: response.data.data.timings.Dhuhr,
+            Asr: response.data.data.timings.Asr,
+            Maghrib: response.data.data.timings.Maghrib,
+            Isha: response.data.data.timings.Isha,
+        })
+    }
+
+    useEffect(() => {
+        getTimings();
+    }, [])
+
+    // === API ===
+
+
+    const [timings, setTimings] = useState({
+        Fajr: "",
+        Dhuhr: "",
+        Asr: "",
+        Maghrib: "",
+        Isha: "",
+    });
+
     return (
         <>
             {/* Top ROW */}
@@ -35,11 +69,11 @@ const MainContents = () => {
 
             {/* PRATERS CARDS */}
             <Stack direction="row" justifyContent={"space-around"} style={{ marginTop: "20px" }}>
-                <Prayer name="الفجر" time="04:21" image="/public/fajr-prayer.png" />
-                <Prayer name="الظهر" time="04:21" image="/public/dhhr-prayer-mosque.png" />
-                <Prayer name="العصر" time="04:21" image="/public/asr-prayer-mosque.png" />
-                <Prayer name="المغرب" time="04:21" image="/public/sunset-prayer-mosque.png" />
-                <Prayer name="العشاء" time="04:21" image="/public/night-prayer-mosque.png" />
+                <Prayer name="الفجر" time={timings.Fajr} image="/public/fajr-prayer.png" />
+                <Prayer name="الظهر" time={timings.Dhuhr} image="/public/dhhr-prayer-mosque.png" />
+                <Prayer name="العصر" time={timings.Asr} image="/public/asr-prayer-mosque.png" />
+                <Prayer name="المغرب" time={timings.Maghrib} image="/public/sunset-prayer-mosque.png" />
+                <Prayer name="العشاء" time={timings.Isha} image="/public/night-prayer-mosque.png" />
             </Stack>
             {/* === PRATERS CARDS === */}
 
