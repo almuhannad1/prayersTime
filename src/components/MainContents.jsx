@@ -13,8 +13,11 @@ import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 
-//API
+//Libraries
 import axios from 'axios';
+import moment from 'moment';
+import "moment/dist/locale/ar-dz"
+moment.locale("ar")
 
 const MainContents = () => {
     // States
@@ -30,6 +33,8 @@ const MainContents = () => {
         displayNAme: "",
         apiName: ""
     })
+
+    const [today, setToday] = useState("");
 
     const avilableCities = [
         {
@@ -67,6 +72,10 @@ const MainContents = () => {
 
     useEffect(() => {
         getTimings();
+
+        const t = moment();
+        setToday(t.format("Do MMM YYYY | h:mm"))
+        console.log("the time is: ", t.format("Y"))
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selectedCity])
 
@@ -86,7 +95,7 @@ const MainContents = () => {
             <Grid container>
                 <Grid xs={6}>
                     <div>
-                        <h2>سبتمبر 9 2023 | 4:20</h2>
+                        <h3>{today}</h3>
                         <h1>{selectedCity.displayNAme}</h1>
                     </div>
                 </Grid>
