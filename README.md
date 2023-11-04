@@ -9,10 +9,11 @@ Tools & libraries
 4. https://aladhan.com/prayer-times-api#GetTimingsByCity - API
 5. axios - API
 6. moment.js - time
+----
 
 URL => "https://654681c162392e30e39ab6e3--deft-gumption-54c893.netlify.app/"
 
-
+-----
 ![UI](image.png)
 
 ![Cities](image-1.png)
