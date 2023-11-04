@@ -6,7 +6,7 @@ import { CardActionArea } from '@mui/material';
 // eslint-disable-next-line react/prop-types
 export default function ActionAreaCard({ name, time, image }) {
     return (
-        <Card sx={{ width: "13vw", height: "22vw" }}>
+        <Card sx={{ width: "11vw", height: "20vw" }}>
             <CardActionArea>
                 <CardMedia
                     component="img"

@@ -173,7 +173,7 @@ const MainContents = () => {
 
             {/* PRATERS CARDS */}
 
-            <Stack direction='row' spacing={3} justifyContent={"space-around"} style={{ marginTop: "20px" }}>
+            <Stack direction='row' spacing={2} justifyContent={"space-around"} style={{ marginTop: "20px" }}>
 
                 <Prayer name="الفجر" time={timings.Fajr} image="asr-prayer-mosque.png" />
                 <Prayer name="الظهر" time={timings.Dhuhr} image="dhhr-prayer-mosque.png" />
