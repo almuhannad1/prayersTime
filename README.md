@@ -2,7 +2,7 @@
 
 ### This website displays the time of each prayer in several cities and also displays the time remaining for the next prayer. *React.Js* was used with *API*.
 
-tools & libraries
+Tools & libraries
 1. vite 3
 2. material UI
 3. Google font
