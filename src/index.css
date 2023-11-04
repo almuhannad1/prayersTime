@@ -67,3 +67,10 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* hide all content when the screen width is less than or equal to 1308px */
+@media screen and (max-width: 1308px) {
+  body {
+    display: none;
+  }
+}

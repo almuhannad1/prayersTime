@@ -172,13 +172,25 @@ const MainContents = () => {
             <Divider style={{ borderColor: "white", opacity: "0.1" }} />
 
             {/* PRATERS CARDS */}
-            <Stack direction="row" justifyContent={"space-around"} style={{ marginTop: "20px" }}>
-                <Prayer name="الفجر" time={timings.Fajr} image="/public/fajr-prayer.png" />
-                <Prayer name="الظهر" time={timings.Dhuhr} image="/public/dhhr-prayer-mosque.png" />
-                <Prayer name="العصر" time={timings.Asr} image="/public/asr-prayer-mosque.png" />
-                <Prayer name="المغرب" time={timings.Maghrib} image="/public/sunset-prayer-mosque.png" />
-                <Prayer name="العشاء" time={timings.Isha} image="/public/night-prayer-mosque.png" />
+
+            <Stack direction={{ xs: 'column', sm: 'row' }} justifyContent={"space-around"} style={{ marginTop: "20px" }}>
+                <Grid xs={2}>
+                    <Prayer name="الفجر" time={timings.Fajr} image="/public/fajr-prayer.png" />
+                </Grid>
+                <Grid xs={2}>
+                    <Prayer name="الظهر" time={timings.Dhuhr} image="/public/dhhr-prayer-mosque.png" />
+                </Grid>
+                <Grid xs={2}>
+                    <Prayer name="العصر" time={timings.Asr} image="/public/asr-prayer-mosque.png" />
+                </Grid>
+                <Grid xs={2}>
+                    <Prayer name="المغرب" time={timings.Maghrib} image="/public/sunset-prayer-mosque.png" />
+                </Grid>
+                <Grid xs={2}>
+                    <Prayer name="العشاء" time={timings.Isha} image="/public/night-prayer-mosque.png" />
+                </Grid>
             </Stack>
+
             {/* === PRATERS CARDS === */}
 
             {/* SELECT CITY */}
