@@ -173,14 +173,22 @@ const MainContents = () => {
 
             {/* PRATERS CARDS */}
 
-            <Stack direction='row' spacing={2} justifyContent={"space-around"} style={{ marginTop: "20px" }}>
-
-                <Prayer name="الفجر" time={timings.Fajr} image="asr-prayer-mosque.png" />
-                <Prayer name="الظهر" time={timings.Dhuhr} image="dhhr-prayer-mosque.png" />
-                <Prayer name="العصر" time={timings.Asr} image="asr-prayer-mosque.png" />
-                <Prayer name="المغرب" time={timings.Maghrib} image="sunset-prayer-mosque.png" />
-                <Prayer name="العشاء" time={timings.Isha} image="night-prayer-mosque.png" />
-
+            <Stack direction='row' justifyContent={"space-around"} style={{ marginTop: "20px" }}>
+                <Grid xs={2}>
+                    <Prayer name="الفجر" time={timings.Fajr} image="public/asr-prayer-mosque.png" />
+                </Grid>
+                <Grid xs={2}>
+                    <Prayer name="الظهر" time={timings.Dhuhr} image="dhhr-prayer-mosque.png" />
+                </Grid>
+                <Grid xs={2}>
+                    <Prayer name="العصر" time={timings.Asr} image="asr-prayer-mosque.png" />
+                </Grid>
+                <Grid xs={2}>
+                    <Prayer name="المغرب" time={timings.Maghrib} image="sunset-prayer-mosque.png" />
+                </Grid>
+                <Grid xs={2}>
+                    <Prayer name="العشاء" time={timings.Isha} image="night-prayer-mosque.png" />
+                </Grid>
             </Stack>
 
             {/* === PRATERS CARDS === */}
