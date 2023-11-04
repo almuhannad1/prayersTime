@@ -175,7 +175,7 @@ const MainContents = () => {
 
             <Stack direction='row' justifyContent={"space-around"} style={{ marginTop: "20px" }}>
                 <Grid xs={2}>
-                    <Prayer name="الفجر" time={timings.Fajr} image="public/asr-prayer-mosque.png" />
+                    <Prayer name="الفجر" time={timings.Fajr} image="asr-prayer-mosque.png" />
                 </Grid>
                 <Grid xs={2}>
                     <Prayer name="الظهر" time={timings.Dhuhr} image="dhhr-prayer-mosque.png" />
